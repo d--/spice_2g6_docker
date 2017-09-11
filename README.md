@@ -7,3 +7,6 @@ Simple Dockerfile for Spice 2g6
 3)  `docker run -it spice bash`
 
 vim is installed by default.
+
+Spice binary for Linux downloaded from:
+* http://rhadmin.org/spice/
