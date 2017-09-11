@@ -8,14 +8,7 @@ RUN chmod +x /usr/local/bin/spice \
         vim \
         tmux \
  && apt-get -yqq clean \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
- && groupadd -r circuits && useradd --no-log-init -r -g circuits circuits
+ && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN mkdir /home/circuits \
- && chown -R circuits:circuits /home/circuits
-
-COPY vimrc /home/circuits/.vimrc
-RUN chown circuits:circuits /home/circuits/.vimrc
-
-USER circuits
-WORKDIR /home/circuits
+COPY vimrc /root/.vimrc
+WORKDIR /root/workspace
