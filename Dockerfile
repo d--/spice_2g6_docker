@@ -1,14 +1,11 @@
-FROM ubuntu:16.04
+FROM alpine:3.6
 
 COPY spice-2g6-linux /usr/local/bin/spice
 
 RUN chmod +x /usr/local/bin/spice \
- && apt-get -qq update \
- && apt-get install -yqq \
+ && apk add --no-cache \
         vim \
-        tmux \
- && apt-get -yqq clean \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+        tmux
 
 COPY vimrc /root/.vimrc
 WORKDIR /root/workspace
